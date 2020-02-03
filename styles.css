@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.entire-page {
+  display: flex;
+  flex-direction: row;
+
+}
+
+img {
+  width: 20px;
+}
+
+main {
+  width: 65%;
+  background-color: #2b2733;
+  height: 100vh;
+
+}
+
+aside {
+  width: 35%;
+  background-color: #2b2733;
+
+}
+
+header {
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #46424d;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.category-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-activity-section {
+  background-color: #46424d;
+  margin: 30px;
+  padding: 40px 75px;
+}
+
+.main-text {
+  color: #cbc9cf;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.card-text {
+  color: #FFF;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+.category-button {
+  width: 30%;
+}
+
+.button-1 {
+}
