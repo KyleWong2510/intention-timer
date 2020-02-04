@@ -24,15 +24,17 @@
         <div class="input-section">
           <div class="input-field-1">
             <p class="card-text">What would you like to accomplish during this time?</p>
-            <input type="text">
+            <input class="field" type="text">
           </div>
-          <div class="input-field-2">
-            <p class="card-text">Minutes</p>
-            <input type="number">
-          </div>
-          <div class="input-field-3">
-            <p class="card-text">Seconds</p>
-            <input type="number">
+          <div class="input-time">
+            <div class="input-field-2">
+              <p class="card-text">Minutes</p>
+              <input class="field" type="number" min="0" max="59">
+            </div>
+            <div class="input-field-3">
+              <p class="card-text">Seconds</p>
+              <input class="field" type="number" min="0" max="59">
+            </div>
           </div>
           <button id="start-activity-button">Start Activity</button>
         </div>
@@ -41,7 +43,8 @@
     <aside>
       <h2 class="main-text">Past Activities</h2>
       <div class="past-activities-notice main-text">
-        <p>You haven't logged any activities yet.<br>Complete the form to the left to get started!</p>
+        <p>You haven't logged any activities yet.</p>
+        <p>Complete the form to the left to get started!</p>
       </div>
     </aside>
   </div>
