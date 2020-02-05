@@ -1,14 +1,14 @@
 var studyButton = document.querySelector('.study');
 var meditateButton = document.querySelector('.meditate');
 var exerciseButton = document.querySelector('.exercise');
-// var studyActive = document.querySelector('#study-img');
 var studyInactive = document.querySelector('#study-inactive');
 var studyActive = document.querySelector('#study-active');
 var meditateInactive = document.querySelector('#meditate-inactive');
 var meditateActive = document.querySelector('#meditate-active');
 var exerciseInactive = document.querySelector('#exercise-inactive');
 var exerciseActive = document.querySelector('#exercise-active');
-var timeInput = document.querySelector('.time-input');
+var minInput = document.querySelector('#min-input');
+var secInput = document.querySelector('#sec-input');
 
 studyButton.addEventListener('click', highlightActivityButtons);
 meditateButton.addEventListener('click', highlightActivityButtons);
@@ -16,7 +16,8 @@ exerciseButton.addEventListener('click', highlightActivityButtons);
 studyButton.addEventListener('click', replaceStudyImage);
 meditateButton.addEventListener('click', replaceMeditateImage);
 exerciseButton.addEventListener('click', replaceExerciseImage);
-timeInput.addEventListener('input', restrictTimeInput);
+minInput.addEventListener('input', restrictMinInput);
+secInput.addEventListener('input', restrictSecInput);
 
 function highlightActivityButtons() {
   unhighlightButtons();
@@ -62,8 +63,15 @@ function replaceExerciseImage() {
   exerciseInactive.classList.add('hidden');
 }
 
-function restrictTimeInput() {
-  if (timeInput.value === "") {
-    timeInput.value = "";
-  }
-}
+
+function restrictMinInput() {
+  if (minInput.value === "") {
+    minInput.value = "";
+  };
+};
+
+function restrictSecInput() {
+  if (secInput.value === "") {
+    secInput.value = "";
+  };
+};
