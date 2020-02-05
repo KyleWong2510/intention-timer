@@ -8,6 +8,7 @@ var meditateInactive = document.querySelector('#meditate-inactive');
 var meditateActive = document.querySelector('#meditate-active');
 var exerciseInactive = document.querySelector('#exercise-inactive');
 var exerciseActive = document.querySelector('#exercise-active');
+var timeInput = document.querySelector('.time-input');
 
 studyButton.addEventListener('click', highlightActivityButtons);
 meditateButton.addEventListener('click', highlightActivityButtons);
@@ -15,12 +16,12 @@ exerciseButton.addEventListener('click', highlightActivityButtons);
 studyButton.addEventListener('click', replaceStudyImage);
 meditateButton.addEventListener('click', replaceMeditateImage);
 exerciseButton.addEventListener('click', replaceExerciseImage);
+timeInput.addEventListener('input', restrictTimeInput);
 
 function highlightActivityButtons() {
   unhighlightButtons();
   if (this.classList.contains('study')) {
     this.classList.add('study-clicked');
-    // studyActive.innerHTML = "<img src=\'assets/study-active.svg\'>";
   } else if (this.classList.contains('meditate')) {
     this.classList.add('meditate-clicked');
   } else if (this.classList.contains('exercise')) {
@@ -59,4 +60,10 @@ function replaceExerciseImage() {
   meditateInactive.classList.remove('hidden');
   exerciseActive.classList.remove('hidden');
   exerciseInactive.classList.add('hidden');
+}
+
+function restrictTimeInput() {
+  if (timeInput.value === "") {
+    timeInput.value = "";
+  }
 }

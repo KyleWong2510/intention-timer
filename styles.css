@@ -1,12 +1,12 @@
 body {
-  margin: 0;
-  height: 100%;
+  margin: 0px;
+  height: 100vh;
 }
 
 .entire-page {
   display: flex;
   flex-direction: row;
-  height: 89vh;
+  height: 93%;
 }
 
 img {
@@ -30,6 +30,7 @@ header {
   text-transform: uppercase;
   background-color: #46424d;
   padding: 20px;
+  height: 7%;
 }
 
 h1 {
