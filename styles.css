@@ -39,6 +39,7 @@ h1 {
 .category-section {
   display: flex;
   justify-content: space-between;
+  margin: 5vh 0 10vh 0;
 }
 
 .new-activity-section {
@@ -86,7 +87,7 @@ h2 {
   /* height: 20px;
   font-size: 16px; */
   color: #FFF;
-  
+
 }
 
 .input-time {
@@ -100,6 +101,10 @@ h2 {
   width: 43%;
 }
 
+.field {
+  font-size: 15px;
+}
+
 #start-activity-button {
   float: right;
 }
@@ -107,4 +112,44 @@ h2 {
 .past-activities-notice {
   text-align: center;
   margin-top: 55px;
+}
+
+#start-activity-button {
+  text-transform: uppercase;
+  background-color: white;
+  font-size: 15px;
+  margin-top: 7vh;
+  padding: 5px 35px;
+  border-radius: 5px;
+}
+
+.study-clicked {
+  border-color: #B3FD78;
+  color: #B3FD78;
+}
+
+.meditate-clicked {
+  border-color: #C278FD;
+  color: #C278FD;
+}
+
+.exercise-clicked {
+  border-color: #FD8078;
+  color: #FD8078;
+}
+
+.study:focus {
+  outline: none;
+}
+
+.meditate:focus {
+  outline: none;
+}
+
+.exercise:focus {
+  outline: none;
+}
+
+.hidden {
+  display: none;
 }

@@ -17,9 +17,9 @@
       <section class="new-activity-section">
         <h3 class="card-text">Select a category:</h3>
         <div class="category-section">
-          <button class="category-button button-1"><img src="assets/study.svg">Study</button>
-          <button class="category-button button-2"><img src="assets/meditate.svg">Meditate</button>
-          <button class="category-button button-2"><img src="assets/exercise.svg">Exercise</button>
+          <button class="category-button button-1 study"><img id="study-inactive" src="assets/study.svg"><img id="study-active" class="hidden" src="assets/study-active.svg">Study</button>
+          <button class="category-button button-2 meditate"><img id="meditate-inactive" src="assets/meditate.svg"><img id="meditate-active" class="hidden" src="assets/meditate-active.svg">Meditate</button>
+          <button class="category-button button-2 exercise"><img id="exercise-inactive" src="assets/exercise.svg"><img id="exercise-active" class="hidden" src="assets/exercise-active.svg">Exercise</button>
         </div>
         <div class="input-section">
           <div class="input-field-1">
@@ -48,6 +48,9 @@
       </div>
     </aside>
   </div>
+
+<script src="main.js"></script>
+
 </body>
 
 </html>
