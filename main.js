@@ -9,6 +9,9 @@ var exerciseInactive = document.querySelector('#exercise-inactive');
 var exerciseActive = document.querySelector('#exercise-active');
 var minInput = document.querySelector('#min-input');
 var secInput = document.querySelector('#sec-input');
+var main1 = document.querySelector('.main1');
+var main2 = document.querySelector('.main2');
+var startButton = document.querySelector('#start-activity-button');
 
 studyButton.addEventListener('click', highlightActivityButtons);
 meditateButton.addEventListener('click', highlightActivityButtons);
@@ -18,6 +21,8 @@ meditateButton.addEventListener('click', replaceMeditateImage);
 exerciseButton.addEventListener('click', replaceExerciseImage);
 minInput.addEventListener('input', restrictMinInput);
 secInput.addEventListener('input', restrictSecInput);
+startButton.addEventListener('click', displayTimerPage);
+
 
 function highlightActivityButtons() {
   unhighlightButtons();
@@ -75,3 +80,8 @@ function restrictSecInput() {
     secInput.value = "";
   };
 };
+
+function displayTimerPage() {
+  main1.classList.add('hidden');
+  main2.classList.remove('hidden');
+}

@@ -6,7 +6,7 @@ body {
 .entire-page {
   display: flex;
   flex-direction: row;
-  height: 93%;
+  height: 93vh;
 }
 
 img {
@@ -17,6 +17,10 @@ main {
   width: 65%;
   background-color: #2b2733;
 }
+
+/* .main2 {
+  display: none;
+} */
 
 aside {
   width: 35%;
@@ -30,7 +34,7 @@ header {
   text-transform: uppercase;
   background-color: #46424d;
   padding: 20px;
-  height: 7%;
+  height: 7vh;
 }
 
 h1 {
@@ -153,4 +157,43 @@ h2 {
 
 .hidden {
   display: none;
+}
+
+.current-activity-section {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 25vh; */
+  background-color: #46424d;
+  margin: 30px;
+  padding: 40px 75px;
+  height: 67%;
+}
+
+.current-activity-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start-timer-button {
+  font-size: 30px;
+  text-transform: uppercase;
+  background-color: #46424d;
+  color: white;
+  padding: 60px;
+  border-radius: 100%;
+  text-align: center;
+  width: 250px;
+  height: 250px;
+
+}
+
+.timer {
+  font-size: 75px;
+  margin: 0 0 30px 0;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
 }
