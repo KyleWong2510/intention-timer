@@ -12,6 +12,7 @@ var secInput = document.querySelector('#sec-input');
 var main1 = document.querySelector('.main1');
 var main2 = document.querySelector('.main2');
 var startButton = document.querySelector('#start-activity-button');
+var startTimer = document.querySelector('.start-timer-button');
 
 studyButton.addEventListener('click', highlightActivityButtons);
 meditateButton.addEventListener('click', highlightActivityButtons);
@@ -48,6 +49,7 @@ function replaceStudyImage() {
   exerciseInactive.classList.remove('hidden');
   studyActive.classList.remove('hidden');
   studyInactive.classList.add('hidden');
+  startTimer.style.borderColor = "#B3FD78";
 }
 
 function replaceMeditateImage() {
@@ -57,6 +59,7 @@ function replaceMeditateImage() {
   exerciseInactive.classList.remove('hidden');
   meditateActive.classList.remove('hidden');
   meditateInactive.classList.add('hidden');
+  startTimer.style.borderColor = "#C278FD";
 }
 
 function replaceExerciseImage() {
@@ -66,8 +69,8 @@ function replaceExerciseImage() {
   meditateInactive.classList.remove('hidden');
   exerciseActive.classList.remove('hidden');
   exerciseInactive.classList.add('hidden');
+  startTimer.style.borderColor = "#FD8078";
 }
-
 
 function restrictMinInput() {
   if (minInput.value === "") {
