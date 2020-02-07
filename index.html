@@ -15,7 +15,9 @@
     <main class="main1">
       <h2 class="main-text">New Activity</h2>
       <section class="new-activity-section">
-        <h3 class="card-text">Select a category:</h3>
+      <div>
+        <h3 class="card-text button-select">Select a category:</h3><p class="card-text button-select cat-select"><img src="assets/warning.svg">You must select a category</p>
+      </div>
         <div class="category-section">
           <button class="category-button button-1 study"><img id="study-inactive" src="assets/study.svg"><img id="study-active" class="hidden" src="assets/study-active.svg">Study</button>
           <button class="category-button button-2 meditate"><img id="meditate-inactive" src="assets/meditate.svg"><img id="meditate-active" class="hidden" src="assets/meditate-active.svg">Meditate</button>
@@ -23,17 +25,26 @@
         </div>
         <div class="input-section">
           <div class="input-field-1">
-            <p class="card-text">What would you like to accomplish during this time?</p>
-            <input class="field" type="text">
+            <p class="card-text category-error">What would you like to accomplish during this time?</p>
+            <input class="field" type="text" id="category-input">
+            <div class="error-container">
+              <p class="error-message cat-error card-text hidden"><img src="assets/warning.svg">A description is required</p>
+            </div>
           </div>
           <div class="input-time">
             <div class="input-field-2">
               <p class="card-text">Minutes</p>
               <input class="field" id="min-input" type="number" min="0" max="59">
+              <div class="error-container">
+                <p class="error-message min-error card-text hidden"><img src="assets/warning.svg">A minute value is required</p>
             </div>
+          </div>
             <div class="input-field-3">
               <p class="card-text">Seconds</p>
               <input class="field" id="sec-input" type="number" min="0" max="59">
+              <div class="error-container">
+                <p class="error-message sec-error card-text hidden"><img src="assets/warning.svg">A second value is required</p>
+              </div>
             </div>
           </div>
           <button id="start-activity-button">Start Activity</button>

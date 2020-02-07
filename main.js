@@ -22,55 +22,53 @@ meditateButton.addEventListener('click', replaceMeditateImage);
 exerciseButton.addEventListener('click', replaceExerciseImage);
 minInput.addEventListener('input', restrictMinInput);
 secInput.addEventListener('input', restrictSecInput);
-startButton.addEventListener('click', displayTimerPage);
 
+// function highlightActivityButtons() {
+//   unhighlightButtons();
+//   if (this.classList.contains('study')) {
+//     this.classList.add('study-clicked');
+//   } else if (this.classList.contains('meditate')) {
+//     this.classList.add('meditate-clicked');
+//   } else if (this.classList.contains('exercise')) {
+//     this.classList.add('exercise-clicked');
+//   }
+// }
 
-function highlightActivityButtons() {
-  unhighlightButtons();
-  if (this.classList.contains('study')) {
-    this.classList.add('study-clicked');
-  } else if (this.classList.contains('meditate')) {
-    this.classList.add('meditate-clicked');
-  } else if (this.classList.contains('exercise')) {
-    this.classList.add('exercise-clicked');
-  }
-}
+// function unhighlightButtons() {
+//   studyButton.classList.remove('study-clicked');
+//   meditateButton.classList.remove('meditate-clicked');
+//   exerciseButton.classList.remove('exercise-clicked');
+// }
 
-function unhighlightButtons() {
-  studyButton.classList.remove('study-clicked');
-  meditateButton.classList.remove('meditate-clicked');
-  exerciseButton.classList.remove('exercise-clicked');
-}
+// function replaceStudyImage() {
+//   meditateActive.classList.add('hidden');
+//   meditateInactive.classList.remove('hidden');
+//   exerciseActive.classList.add('hidden');
+//   exerciseInactive.classList.remove('hidden');
+//   studyActive.classList.remove('hidden');
+//   studyInactive.classList.add('hidden');
+//   startTimer.style.borderColor = "#B3FD78";
+// }
 
-function replaceStudyImage() {
-  meditateActive.classList.add('hidden');
-  meditateInactive.classList.remove('hidden');
-  exerciseActive.classList.add('hidden');
-  exerciseInactive.classList.remove('hidden');
-  studyActive.classList.remove('hidden');
-  studyInactive.classList.add('hidden');
-  startTimer.style.borderColor = "#B3FD78";
-}
+// function replaceMeditateImage() {
+//   studyActive.classList.add('hidden');
+//   studyInactive.classList.remove('hidden');
+//   exerciseActive.classList.add('hidden');
+//   exerciseInactive.classList.remove('hidden');
+//   meditateActive.classList.remove('hidden');
+//   meditateInactive.classList.add('hidden');
+//   startTimer.style.borderColor = "#C278FD";
+// }
 
-function replaceMeditateImage() {
-  studyActive.classList.add('hidden');
-  studyInactive.classList.remove('hidden');
-  exerciseActive.classList.add('hidden');
-  exerciseInactive.classList.remove('hidden');
-  meditateActive.classList.remove('hidden');
-  meditateInactive.classList.add('hidden');
-  startTimer.style.borderColor = "#C278FD";
-}
-
-function replaceExerciseImage() {
-  studyActive.classList.add('hidden');
-  studyInactive.classList.remove('hidden');
-  meditateActive.classList.add('hidden');
-  meditateInactive.classList.remove('hidden');
-  exerciseActive.classList.remove('hidden');
-  exerciseInactive.classList.add('hidden');
-  startTimer.style.borderColor = "#FD8078";
-}
+// function replaceExerciseImage() {
+//   studyActive.classList.add('hidden');
+//   studyInactive.classList.remove('hidden');
+//   meditateActive.classList.add('hidden');
+//   meditateInactive.classList.remove('hidden');
+//   exerciseActive.classList.remove('hidden');
+//   exerciseInactive.classList.add('hidden');
+//   startTimer.style.borderColor = "#FD8078";
+// }
 
 function restrictMinInput() {
   if (minInput.value === "") {
@@ -88,3 +86,43 @@ function displayTimerPage() {
   main1.classList.add('hidden');
   main2.classList.remove('hidden');
 }
+
+//
+
+var categoryInput = document.querySelector("#category-input");
+var categoryError = document.querySelector(".category-error"); 
+var minInput = document.querySelector("#min-input");
+var secInput = document.querySelector("#sec-input");
+var catError = document.querySelector(".cat-error")
+var minError = document.querySelector(".min-error")
+var secError = document.querySelector(".sec-error")
+var buttonArray = [studyButton, meditateButton, exerciseButton]
+
+startButton.addEventListener('click', pageValidation);
+
+function pageValidation() {
+  for (var i=0, i < buttonArray.length, i++) {
+
+  }
+
+  if (!categoryInput.value) {
+    catError.classList.remove('hidden')
+  } else {
+    catError.classList.add('hidden')
+  }
+  if (!minInput.value) {
+    minError.classList.remove('hidden')
+  } else {
+    minError.classList.add('hidden')
+  }
+  if (!secInput.value) {
+    secError.classList.remove('hidden')
+  } else {
+    secError.classList.add('hidden')
+  }
+  if (categoryInput.value && minInput.value && secInput.value) {
+  displayTimerPage();
+    }
+}
+
+var catButtons 
