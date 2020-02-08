@@ -15,21 +15,18 @@
     <main class="main1">
       <h2 class="main-text">New Activity</h2>
       <section class="new-activity-section">
-      <div>
-        <h3 class="card-text button-select">Select a category:</h3><p class="card-text button-select cat-select"><img src="assets/warning.svg">You must select a category</p>
+      <div class="category-field">
+        <h3 class="card-text button-select">Select a category:</h3>
       </div>
         <div class="category-section">
-          <button class="category-button button-1 study"><img id="study-inactive" src="assets/study.svg"><img id="study-active" class="hidden" src="assets/study-active.svg">Study</button>
-          <button class="category-button button-2 meditate"><img id="meditate-inactive" src="assets/meditate.svg"><img id="meditate-active" class="hidden" src="assets/meditate-active.svg">Meditate</button>
-          <button class="category-button button-2 exercise"><img id="exercise-inactive" src="assets/exercise.svg"><img id="exercise-active" class="hidden" src="assets/exercise-active.svg">Exercise</button>
+          <button id="study" class="category-button study"><img src="assets/study.svg">Study</button>
+          <button id="meditate" class="category-button meditate"><img src="assets/meditate.svg">Meditate</button>
+          <button id="exercise"class="category-button exercise"><img src="assets/exercise.svg">Exercise</button>
         </div>
         <div class="input-section">
           <div class="input-field-1">
             <p class="card-text category-error">What would you like to accomplish during this time?</p>
-            <input class="field" type="text" id="category-input">
-            <div class="error-container">
-              <p class="error-message cat-error card-text hidden"><img src="assets/warning.svg">A description is required</p>
-            </div>
+            <input class="field" type="text" id="title-input">
           </div>
           <div class="input-time">
             <div class="input-field-2">

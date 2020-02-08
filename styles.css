@@ -116,30 +116,21 @@ h2 {
   float: right;
 }
 
-.study-clicked {
-  border-color: #B3FD78;
+.study.active {
   color: #B3FD78;
+  border: 2px solid #B3FD78;
+  outline: none;
 }
 
-.meditate-clicked {
-  border-color: #C278FD;
+.meditate.active {
   color: #C278FD;
+  border: 2px solid #C278FD;
+  outline: none;
 }
 
-.exercise-clicked {
-  border-color: #FD8078;
+.exercise.active {
   color: #FD8078;
-}
-
-.study:focus {
-  outline: none;
-}
-
-.meditate:focus {
-  outline: none;
-}
-
-.exercise:focus {
+  border: 2px solid #FD8078;
   outline: none;
 }
 

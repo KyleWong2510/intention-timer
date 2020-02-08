@@ -1,74 +1,48 @@
 var studyButton = document.querySelector('.study');
 var meditateButton = document.querySelector('.meditate');
 var exerciseButton = document.querySelector('.exercise');
-var studyInactive = document.querySelector('#study-inactive');
-var studyActive = document.querySelector('#study-active');
-var meditateInactive = document.querySelector('#meditate-inactive');
-var meditateActive = document.querySelector('#meditate-active');
-var exerciseInactive = document.querySelector('#exercise-inactive');
-var exerciseActive = document.querySelector('#exercise-active');
 var minInput = document.querySelector('#min-input');
 var secInput = document.querySelector('#sec-input');
 var main1 = document.querySelector('.main1');
 var main2 = document.querySelector('.main2');
 var startButton = document.querySelector('#start-activity-button');
 var startTimer = document.querySelector('.start-timer-button');
+var buttonContainer = document.querySelector('.category-section');
+var categoryField = document.querySelector('.category-field');
+var inputField1 = document.querySelector('.input-field-1');
+var inputField2 = document.querySelector('.input-field-2');
+var inputField3 = document.querySelector('.input-field-3');
+var buttonArray = [studyButton, meditateButton, exerciseButton];
+var inputArray = [inputField1, inputField2, inputField3];
+var titleInput = document.querySelector("#title-input");
+var minInput = document.querySelector("#min-input");
+var secInput = document.querySelector("#sec-input");
 
-studyButton.addEventListener('click', highlightActivityButtons);
-meditateButton.addEventListener('click', highlightActivityButtons);
-exerciseButton.addEventListener('click', highlightActivityButtons);
-studyButton.addEventListener('click', replaceStudyImage);
-meditateButton.addEventListener('click', replaceMeditateImage);
-exerciseButton.addEventListener('click', replaceExerciseImage);
 minInput.addEventListener('input', restrictMinInput);
 secInput.addEventListener('input', restrictSecInput);
+buttonContainer.addEventListener('click', changeButtons);
+startButton.addEventListener('click', validateButtons);
 
-// function highlightActivityButtons() {
-//   unhighlightButtons();
-//   if (this.classList.contains('study')) {
-//     this.classList.add('study-clicked');
-//   } else if (this.classList.contains('meditate')) {
-//     this.classList.add('meditate-clicked');
-//   } else if (this.classList.contains('exercise')) {
-//     this.classList.add('exercise-clicked');
-//   }
-// }
+function changeButtons() {
+  var classList = event.target.classList;
+  if (event.target.classList.contains('active')) {
+    event.target.classList.remove('active');
+    event.target.firstElementChild.src = `./assets/${event.target.id}.svg`;
+  } else {
+    event.target.classList.add('active');
+    event.target.firstElementChild.src = `./assets/${event.target.id}-active.svg`;
+  }
+  removeColors();
+}
 
-// function unhighlightButtons() {
-//   studyButton.classList.remove('study-clicked');
-//   meditateButton.classList.remove('meditate-clicked');
-//   exerciseButton.classList.remove('exercise-clicked');
-// }
-
-// function replaceStudyImage() {
-//   meditateActive.classList.add('hidden');
-//   meditateInactive.classList.remove('hidden');
-//   exerciseActive.classList.add('hidden');
-//   exerciseInactive.classList.remove('hidden');
-//   studyActive.classList.remove('hidden');
-//   studyInactive.classList.add('hidden');
-//   startTimer.style.borderColor = "#B3FD78";
-// }
-
-// function replaceMeditateImage() {
-//   studyActive.classList.add('hidden');
-//   studyInactive.classList.remove('hidden');
-//   exerciseActive.classList.add('hidden');
-//   exerciseInactive.classList.remove('hidden');
-//   meditateActive.classList.remove('hidden');
-//   meditateInactive.classList.add('hidden');
-//   startTimer.style.borderColor = "#C278FD";
-// }
-
-// function replaceExerciseImage() {
-//   studyActive.classList.add('hidden');
-//   studyInactive.classList.remove('hidden');
-//   meditateActive.classList.add('hidden');
-//   meditateInactive.classList.remove('hidden');
-//   exerciseActive.classList.remove('hidden');
-//   exerciseInactive.classList.add('hidden');
-//   startTimer.style.borderColor = "#FD8078";
-// }
+function removeColors() {
+  for (var i = 0; i < buttonArray.length; i++) {
+    if (buttonArray[i].id !== event.target.id) {
+      buttonArray[i].classList.remove('active');
+      buttonArray[i].firstElementChild.src = `./assets/${buttonArray[i].id}.svg`;
+    }
+  }
+}
 
 function restrictMinInput() {
   if (minInput.value === "") {
@@ -87,42 +61,64 @@ function displayTimerPage() {
   main2.classList.remove('hidden');
 }
 
-//
-
-var categoryInput = document.querySelector("#category-input");
-var categoryError = document.querySelector(".category-error"); 
-var minInput = document.querySelector("#min-input");
-var secInput = document.querySelector("#sec-input");
-var catError = document.querySelector(".cat-error")
-var minError = document.querySelector(".min-error")
-var secError = document.querySelector(".sec-error")
-var buttonArray = [studyButton, meditateButton, exerciseButton]
-
-startButton.addEventListener('click', pageValidation);
-
-function pageValidation() {
-  for (var i=0, i < buttonArray.length, i++) {
-
-  }
-
-  if (!categoryInput.value) {
-    catError.classList.remove('hidden')
-  } else {
-    catError.classList.add('hidden')
-  }
-  if (!minInput.value) {
-    minError.classList.remove('hidden')
-  } else {
-    minError.classList.add('hidden')
-  }
-  if (!secInput.value) {
-    secError.classList.remove('hidden')
-  } else {
-    secError.classList.add('hidden')
-  }
-  if (categoryInput.value && minInput.value && secInput.value) {
-  displayTimerPage();
+function validateButtons() {
+  for (var i = 0; i < buttonArray.length; i++) {
+    if (!buttonArray[i].classList.contains('active')) {
+      categoryField.insertAdjacentHTML('afterend', `
+      <p class="card-text button-select cat-select"><img src="assets/warning.svg">You must select a category
+      </p>`);
+    } else {
+      break
     }
+  }
+  validateInputs();
 }
 
-var catButtons 
+function validateInputs() {
+  if (!titleInput.value) {
+    inputField1.insertAdjacentHTML('afterend', `
+    <div class="error-container">
+      <p class="error-message cat-error card-text"><img src="assets/warning.svg">A description is required.</p>
+    </div>`)
+  }
+  if (!minInput.value) {
+    inputField2.insertAdjacentHTML('afterend', `
+    <div class="error-container">
+      <p class="error-message min-error card-text"><img src="assets/warning.svg">A value is required.</p>
+    </div>`)
+  }
+  if (!secInput.value) {
+    inputField3.insertAdjacentHTML('afterend', `
+    <div class="error-container">
+      <p class="error-message sec-error card-text"><img src="assets/warning.svg">A value is required.</p>
+    </div>`)
+  }
+  if (titleInput.value && minInput.value && secInput.value) {
+    displayTimerPage();
+  };
+};
+
+
+// IDK WHAT THE FUCK THIS CODE IS - JUST THROWING SHIT AT THE WALL
+// function validateInputs() {
+//   for (var i = 0; i < inputArray.length; i++) {
+//     if (!inputArray[i].value == "") {
+//       inputField1.insertAdjacentHTML('afterend', `
+//       <div class="error-container">
+//       <p class="error-message cat-error card-text"><img src="assets/warning.svg">An input is required..</p>
+//       </div>`)
+//     }
+//     if (!inputArray[i].value == "") {
+//       inputField2.insertAdjacentHTML('afterend', `
+//       <div class="error-container">
+//       <p class="error-message cat-error card-text"><img src="assets/warning.svg">An input is required..</p>
+//       </div>`)
+//     }
+//     if (!inputArray[i].value == "") {
+//       inputField3.insertAdjacentHTML('afterend', `
+//     <div class="error-container">
+//     <p class="error-message cat-error card-text"><img src="assets/warning.svg">An input is required..</p>
+//     </div>`)
+//     };
+//   };
+// };
