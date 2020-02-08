@@ -4,6 +4,7 @@ var meditateButton = document.querySelector('.meditate');
 var exerciseButton = document.querySelector('.exercise');
 var startButton = document.querySelector('#start-activity-button');
 var buttonContainer = document.querySelector('.category-section');
+var buttonArray = [studyButton, meditateButton, exerciseButton];
 
 
 // INPUT VARIABLES
@@ -29,12 +30,13 @@ var startTimer = document.querySelector('.start-timer-button');
 minInput.addEventListener('input', restrictMinInput);
 secInput.addEventListener('input', restrictSecInput);
 buttonContainer.addEventListener('click', changeButtons);
+buttonContainer.addEventListener('click', timerBorder)
 startButton.addEventListener('click', validate);
 
 
 // BUTTON FUNCTIONS
 function changeButtons() {
-  var classList = event.target.classList;
+  // var classList = event.target.classList;
   if (event.target.classList.contains('active')) {
     event.target.classList.remove('active');
     event.target.firstElementChild.src = `./assets/${event.target.id}.svg`;
@@ -54,6 +56,17 @@ function removeColors() {
   };
 };
 
+function timerBorder() {
+  if (event.target.classList.contains('study')) {
+    startTimer.style.borderColor = '#B3FD78';
+  }
+  if (event.target.classList.contains('meditate')) {
+    startTimer.style.borderColor = '#C278FD';
+  }
+  if (event.target.classList.contains('exercise')) {
+    startTimer.style.borderColor = '#FD8078';
+  }
+}
 
 // FUNCTIONS FOR MINUTES AND SECONDS
 function restrictMinInput() {

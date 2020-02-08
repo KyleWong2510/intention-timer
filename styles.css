@@ -3,6 +3,10 @@ body {
   height: 100vh;
 }
 
+button, input {
+  outline: none;
+}
+
 .entire-page {
   display: flex;
   flex-direction: row;
