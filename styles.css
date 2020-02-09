@@ -179,10 +179,6 @@ h2 {
   font-weight: bold;
 }
 
-.error-container {
-  height: 56px;
-}
-
 .error-message {
   margin: 0;
   padding: 16px 0px;
@@ -194,4 +190,15 @@ h2 {
 
 .cat-select {
   margin: 0px 15px;
+}
+
+.cat-error {
+  display: inline-block;
+}
+
+.cat-error,
+.title-error,
+.min-error,
+.sec-error {
+  visibility: hidden;
 }
