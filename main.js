@@ -4,6 +4,7 @@ var meditateButton = document.querySelector('.meditate');
 var exerciseButton = document.querySelector('.exercise');
 var startButton = document.querySelector('#start-activity-button');
 var buttonContainer = document.querySelector('.category-section');
+var buttonArray = [studyButton, meditateButton, exerciseButton];
 
 
 // INPUT VARIABLES
@@ -29,12 +30,13 @@ var startTimer = document.querySelector('.start-timer-button');
 minInput.addEventListener('input', restrictMinInput);
 secInput.addEventListener('input', restrictSecInput);
 buttonContainer.addEventListener('click', changeButtons);
+buttonContainer.addEventListener('click', timerBorder)
 startButton.addEventListener('click', validate);
 
 
 // BUTTON FUNCTIONS
 function changeButtons() {
-  var classList = event.target.classList;
+  // var classList = event.target.classList;
   if (event.target.classList.contains('active')) {
     event.target.classList.remove('active');
     event.target.firstElementChild.src = `./assets/${event.target.id}.svg`;
@@ -54,6 +56,17 @@ function removeColors() {
   };
 };
 
+function timerBorder() {
+  if (event.target.classList.contains('study')) {
+    startTimer.style.borderColor = '#B3FD78';
+  }
+  if (event.target.classList.contains('meditate')) {
+    startTimer.style.borderColor = '#C278FD';
+  }
+  if (event.target.classList.contains('exercise')) {
+    startTimer.style.borderColor = '#FD8078';
+  }
+}
 
 // FUNCTIONS FOR MINUTES AND SECONDS
 function restrictMinInput() {
@@ -95,18 +108,19 @@ function validate() {
 // in the if block to say that if none of the buttons contain the
 // class of 'active', then display the error message and RETURN (evaluate to)
 // FALSE. If ANY of the buttons contain 'active', then it evaluates to true.
+var catError = document.querySelector('.cat-error');
+
 function validateButtons() {
   var isStudyActive = studyButton.classList.contains('active');
   var isMeditateActive = meditateButton.classList.contains('active');
   var isExerciseActive = exerciseButton.classList.contains('active');
   if (!isStudyActive && !isMeditateActive && !isExerciseActive) {
-    categoryField.insertAdjacentHTML('afterend', `
-    <p class="card-text button-select cat-select"><img src="assets/warning.svg">You must select a category
-    </p>`);
+    catError.style.visibility = 'visible';
     return false;
   }
   return true;
 }
+
 
 // Validate inputs function: A variable is created for "isValid" so that we
 // can use its true or false evaluation up in the Validate function. It is
@@ -115,27 +129,23 @@ function validateButtons() {
 // isValid will then be set to FALSE if any error message has appeared.
 // If no error messages appeared, isValid will remain true and will push
 // through the validate function above, allowing the timer page to be displayed.
+var titleError = document.querySelector('.title-error');
+var minError = document.querySelector('.min-error');
+var secError = document.querySelector('.sec-error');
+
+
 function validateInputs() {
   var isValid = true;
   if (!titleInput.value) {
-    inputField1.insertAdjacentHTML('afterend', `
-    <div class="error-container">
-      <p class="error-message cat-error card-text"><img src="assets/warning.svg">A description is required.</p>
-    </div>`);
+    titleError.style.visibility = 'visible';
     isValid = false;
   };
   if (!minInput.value) {
-    inputField2.insertAdjacentHTML('afterend', `
-    <div class="error-container">
-      <p class="error-message min-error card-text"><img src="assets/warning.svg">A value is required.</p>
-    </div>`);
+    minError.style.visibility = 'visible';
     isValid = false;
   };
   if (!secInput.value) {
-    inputField3.insertAdjacentHTML('afterend', `
-    <div class="error-container">
-      <p class="error-message sec-error card-text"><img src="assets/warning.svg">A value is required.</p>
-    </div>`);
+    secError.style.visibility = 'visible';
     isValid = false;
   };
   return isValid;
@@ -145,3 +155,18 @@ function displayTimerPage() {
   main1.classList.add('hidden');
   main2.classList.remove('hidden');
 };
+
+
+// variable declaration and function for populating second page info
+var titleDisplay = document.getElementById('title-display');
+// var minDisplay = document.getElementById();
+// var secDisplay = document.getElementById();
+
+startButton.addEventListener('click', timerPageTitle);
+
+function timerPageTitle() {
+  titleDisplay.innerText = titleInput.value;
+
+}
+
+

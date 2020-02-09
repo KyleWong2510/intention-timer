@@ -17,6 +17,7 @@
       <section class="new-activity-section">
       <div class="category-field">
         <h3 class="card-text button-select">Select a category:</h3>
+        <p class="error-message cat-error card-text"><img src="assets/warning.svg">A category selection is required</p>
       </div>
         <div class="category-section">
           <button id="study" class="category-button study"><img src="assets/study.svg">Study</button>
@@ -25,23 +26,20 @@
         </div>
         <div class="input-section">
           <div class="input-field-1">
-            <p class="card-text category-error">What would you like to accomplish during this time?</p>
-            <input class="field" type="text" id="title-input">
+            <p class="card-text">What would you like to accomplish during this time?</p>
+            <input class="field"  id="title-input" type="text">
+              <p class="error-message title-error card-text"><img src="assets/warning.svg">A description is required</p>
           </div>
           <div class="input-time">
             <div class="input-field-2">
               <p class="card-text">Minutes</p>
               <input class="field" id="min-input" type="number" min="0" max="59">
-              <div class="error-container">
-                <p class="error-message min-error card-text hidden"><img src="assets/warning.svg">A minute value is required</p>
+                <p class="error-message min-error card-text"><img src="assets/warning.svg">A minute value is required</p>
             </div>
-          </div>
             <div class="input-field-3">
               <p class="card-text">Seconds</p>
               <input class="field" id="sec-input" type="number" min="0" max="59">
-              <div class="error-container">
-                <p class="error-message sec-error card-text hidden"><img src="assets/warning.svg">A second value is required</p>
-              </div>
+                <p class="error-message sec-error card-text"><img src="assets/warning.svg">A second value is required</p>
             </div>
           </div>
           <button id="start-activity-button">Start Activity</button>
@@ -52,10 +50,10 @@
       <h2 class="main-text">Current Activity</h2>
       <section class="current-activity-section">
         <div class="current-activity-container">
-          <p class="activity-description card-text">Deep Breathing</p>
-          <p class="timer">05:00</p>
+          <p class="activity-description card-text" id="title-display"></p>
+          <p class="timer">:</p>
           <button class="start-timer-button">Start</button>
-        </div>
+        </p>
       </section>
     </main>
     <aside>
