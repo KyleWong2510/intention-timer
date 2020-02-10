@@ -51,8 +51,13 @@
       <section class="current-activity-section">
         <div class="current-activity-container">
           <p class="activity-description card-text" id="title-display"></p>
-          <p class="timer">:</p>
+          <div class="timer-container">
+            <p class="timer" id="minutes-slot"></p>
+            <p class="timer colon">:</p>
+            <p class="timer" id="seconds-slot"></p>
+          </div>
           <button class="start-timer-button">Start</button>
+          <button class="log-activity-button hidden">Log Activity</button>
         </p>
       </section>
     </main>
