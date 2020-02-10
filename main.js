@@ -5,6 +5,8 @@ var exerciseButton = document.querySelector('.exercise');
 var startButton = document.querySelector('#start-activity-button');
 var buttonContainer = document.querySelector('.category-section');
 var buttonArray = [studyButton, meditateButton, exerciseButton];
+var startTimerButton = document.querySelector('.start-timer-button');
+var logActivityButton = document.querySelector('.log-activity-button');
 
 
 // INPUT VARIABLES
@@ -24,6 +26,8 @@ var main2 = document.querySelector('.main2');
 
 // TIMER VARIABLES
 var startTimer = document.querySelector('.start-timer-button');
+var secondsSlot = document.getElementById('seconds-slot');
+var minutesSlot = document.getElementById('minutes-slot');
 
 
 // EVENT LISTENERS
@@ -32,6 +36,8 @@ secInput.addEventListener('input', restrictSecInput);
 buttonContainer.addEventListener('click', changeButtons);
 buttonContainer.addEventListener('click', timerBorder)
 startButton.addEventListener('click', validate);
+startTimerButton.addEventListener('click', setTimer);
+
 
 
 // BUTTON FUNCTIONS
@@ -65,10 +71,10 @@ function timerBorder() {
   }
   if (event.target.classList.contains('exercise')) {
     startTimer.style.borderColor = '#FD8078';
-  }
-}
+  };
+};
 
-// FUNCTIONS FOR MINUTES AND SECONDS
+// FUNCTIONS FOR THE TIMER
 function restrictMinInput() {
   if (minInput.value === "") {
     minInput.value = "";
@@ -81,6 +87,33 @@ function restrictSecInput() {
   };
 };
 
+function setTimer() {
+  var minutes = Number(minInput.value);
+  var seconds = Number(secInput.value);
+  var totalSeconds = (minutes*60) + seconds;
+  var remainingSeconds = totalSeconds % 60;
+  var remainingMinutes = Math.floor(totalSeconds / 60);
+  var colon = document.querySelector('.colon')
+  var timer = setInterval(function() {
+    minutesSlot.innerText=remainingMinutes;
+    secondsSlot.innerText=remainingSeconds;
+      totalSeconds--;
+      remainingMinutes = Math.floor(totalSeconds / 60);
+      remainingSeconds = totalSeconds % 60;
+      if (remainingSeconds < 10) {
+        remainingSeconds = `0${remainingSeconds}`;
+      }
+      if (totalSeconds < 0) {
+          clearInterval(timer);
+          minutesSlot.innerText='';
+          secondsSlot.innerText='Congratulations!';
+          colon.classList.add('hidden');
+          startTimerButton.innerText='COMPLETE!';
+          startTimerButton.disabled = true;
+          logActivityButton.classList.remove('hidden');
+      };
+    }, 1000);
+  };
 
 // FUNCTIONS FOR MOVING TO PAGE
 
@@ -97,6 +130,8 @@ function validate() {
   var areInputsValid = validateInputs();
   if(areButtonsValid && areInputsValid) {
     displayTimerPage();
+    minutesSlot.innerText=minInput.value;
+    secondsSlot.innerText=secInput.value;
   }
 }
 
@@ -168,5 +203,3 @@ function timerPageTitle() {
   titleDisplay.innerText = titleInput.value;
 
 }
-
-

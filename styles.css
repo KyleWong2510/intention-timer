@@ -166,9 +166,19 @@ h2 {
   padding: 60px;
   border-radius: 100%;
   text-align: center;
-  width: 250px;
-  height: 250px;
+  width: 280px;
+  height: 280px;
   border-width: 3px;
+}
+
+.log-activity-button {
+  text-transform: uppercase;
+  background-color: white;
+  font-size: 15px;
+  padding: 5px 35px;
+  border-radius: 5px;
+  float: right;
+  margin-top: 15px;
 }
 
 .timer {
@@ -179,6 +189,10 @@ h2 {
   font-weight: bold;
 }
 
+.timer-container {
+  display: flex;
+  flex-direction: row;
+}
 .error-message {
   margin: 0;
   padding: 16px 0px;
