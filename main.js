@@ -31,6 +31,7 @@ var main3 = document.querySelector('.main3');
 
 // TIMER VARIABLES
 var startTimer = document.querySelector('.start-timer-button');
+var titleSlot = document.getElementById('title-display');
 var secondsSlot = document.getElementById('seconds-slot');
 var minutesSlot = document.getElementById('minutes-slot');
 
@@ -83,8 +84,14 @@ function whichButton() {
 }
 
 function returnToMain1() {
+  var colon = document.querySelector('.colon');
   main3.classList.add('hidden');
   main1.classList.remove('hidden');
+  colon.classList.remove('hidden');
+  console.log('test');
+  startTimerButton.disabled = false;
+  startTimerButton.innerText = 'START';
+  logActivityButton.classList.add('hidden');
 }
 
 // BUTTON FUNCTIONS
@@ -175,6 +182,7 @@ function validate() {
   if(areButtonsValid && areInputsValid) {
     createObject();
     displayTimerPage();
+    titleSlot.innerText=currentActivity.title;
     minutesSlot.innerText=currentActivity.minutes;
     secondsSlot.innerText=currentActivity.seconds;
     clearInputs();
@@ -244,16 +252,3 @@ function displayTimerPage() {
   main1.classList.add('hidden');
   main2.classList.remove('hidden');
 };
-
-
-// variable declaration and function for populating second page info
-var titleDisplay = document.getElementById('title-display');
-// var minDisplay = document.getElementById();
-// var secDisplay = document.getElementById();
-
-startButton.addEventListener('click', timerPageTitle);
-
-function timerPageTitle() {
-  titleDisplay.innerText = titleInput.value;
-
-}
