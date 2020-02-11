@@ -7,6 +7,7 @@ var buttonContainer = document.querySelector('.category-section');
 var buttonArray = [studyButton, meditateButton, exerciseButton];
 var startTimerButton = document.querySelector('.start-timer-button');
 var logActivityButton = document.querySelector('.log-activity-button');
+var createNewButton = document.querySelector('.create-new-button');
 
 
 // INPUT VARIABLES
@@ -17,11 +18,15 @@ var inputField1 = document.querySelector('.input-field-1');
 var inputField2 = document.querySelector('.input-field-2');
 var inputField3 = document.querySelector('.input-field-3');
 var categoryField = document.querySelector('.category-field');
+// var minutes = minInput.value;
+// var seconds = secInput.value;
+// var title = titleInput.value;
 
 
 // PAGE VARIABLES
 var main1 = document.querySelector('.main1');
 var main2 = document.querySelector('.main2');
+var main3 = document.querySelector('.main3');
 
 
 // TIMER VARIABLES
@@ -37,12 +42,54 @@ buttonContainer.addEventListener('click', changeButtons);
 buttonContainer.addEventListener('click', timerBorder)
 startButton.addEventListener('click', validate);
 startTimerButton.addEventListener('click', setTimer);
+logActivityButton.addEventListener('click', logActivity);
+createNewButton.addEventListener('click', returnToMain1);
 
 
+
+//CREATING A NEW OBJECT
+var chosenTitle = document.querySelector('.chosen-title');
+var chosenMin = document.querySelector('.chosen-min');
+var chosenSec = document.querySelector('.chosen-sec');
+var activityCard = document.querySelector('.activity-card');
+var currentActivity;
+var chosenCategory = document.querySelector('.chosen-category');
+var noActivitiesNotice = document.querySelector('.no-activities-notice');
+
+function createObject() {
+  currentActivity =
+    new Activity(titleInput.value,
+      minInput.value,
+      secInput.value,
+      whichButton());
+}
+
+function logActivity() {
+  main2.classList.add('hidden');
+  main3.classList.remove('hidden');
+  var newCard = currentActivity.createCard();
+  document.querySelector('.card-wrapper').appendChild(newCard);
+  currentActivity = undefined;
+}
+
+function whichButton() {
+  if (studyButton.classList.contains('active')) {
+    return 'Study';
+  } else if (meditateButton.classList.contains('active')) {
+    return 'Meditate';
+  } else if (exerciseButton.classList.contains('active')) {
+    return 'Exercise';
+  }
+}
+
+function returnToMain1() {
+  main3.classList.add('hidden');
+  main1.classList.remove('hidden');
+}
 
 // BUTTON FUNCTIONS
 function changeButtons() {
-  // var classList = event.target.classList;
+  removeColors();
   if (event.target.classList.contains('active')) {
     event.target.classList.remove('active');
     event.target.firstElementChild.src = `./assets/${event.target.id}.svg`;
@@ -50,15 +97,12 @@ function changeButtons() {
     event.target.classList.add('active');
     event.target.firstElementChild.src = `./assets/${event.target.id}-active.svg`;
   }
-  removeColors();
 }
 
 function removeColors() {
   for (var i = 0; i < buttonArray.length; i++) {
-    if (buttonArray[i].id !== event.target.id) {
       buttonArray[i].classList.remove('active');
       buttonArray[i].firstElementChild.src = `./assets/${buttonArray[i].id}.svg`;
-    };
   };
 };
 
@@ -88,8 +132,8 @@ function restrictSecInput() {
 };
 
 function setTimer() {
-  var minutes = Number(minInput.value);
-  var seconds = Number(secInput.value);
+  var minutes = Number(currentActivity.minutes);
+  var seconds = Number(currentActivity.seconds);
   var totalSeconds = (minutes*60) + seconds;
   var remainingSeconds = totalSeconds % 60;
   var remainingMinutes = Math.floor(totalSeconds / 60);
@@ -98,6 +142,7 @@ function setTimer() {
     minutesSlot.innerText=remainingMinutes;
     secondsSlot.innerText=remainingSeconds;
       totalSeconds--;
+      startTimerButton.disabled = true;
       remainingMinutes = Math.floor(totalSeconds / 60);
       remainingSeconds = totalSeconds % 60;
       if (remainingSeconds < 10) {
@@ -109,7 +154,6 @@ function setTimer() {
           secondsSlot.innerText='Congratulations!';
           colon.classList.add('hidden');
           startTimerButton.innerText='COMPLETE!';
-          startTimerButton.disabled = true;
           logActivityButton.classList.remove('hidden');
       };
     }, 1000);
@@ -129,10 +173,20 @@ function validate() {
   var areButtonsValid = validateButtons();
   var areInputsValid = validateInputs();
   if(areButtonsValid && areInputsValid) {
+    createObject();
     displayTimerPage();
-    minutesSlot.innerText=minInput.value;
-    secondsSlot.innerText=secInput.value;
+    minutesSlot.innerText=currentActivity.minutes;
+    secondsSlot.innerText=currentActivity.seconds;
+    clearInputs();
   }
+}
+
+function clearInputs() {
+  minInput.value = '';
+  secInput.value = '';
+  titleInput.value = '';
+  removeColors();
+
 }
 
 // Validate buttons function: in this function, we also created three new
