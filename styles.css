@@ -216,3 +216,30 @@ h2 {
 .sec-error {
   visibility: hidden;
 }
+
+.activity-card {
+  background-color: #46424d;
+  margin: 10px 30px;
+  padding: 10px;
+}
+
+.chosen {
+  margin: 5px;
+}
+
+.card-border {
+  border-right: 4px solid white;
+}
+
+.chosen-time {
+  display: flex;
+  flex-direction: row;
+}
+
+.chosen-category {
+  font-weight: bold;
+}
+
+.chosen-title {
+  font-weight: lighter;
+}
