@@ -14,7 +14,7 @@
   <div class="entire-page">
     <main class="main1">
       <h2 class="main-text">New Activity</h2>
-      <section class="new-activity-section">
+      <section class="new-activity-section shadow">
       <div class="category-field">
         <h3 class="card-text button-select">Select a category:</h3>
         <p class="error-message cat-error card-text"><img src="assets/warning.svg">A category selection is required</p>
@@ -48,7 +48,7 @@
     </main>
     <main class="main2 hidden">
       <h2 class="main-text">Current Activity</h2>
-      <section class="current-activity-section">
+      <section class="current-activity-section shadow">
         <div class="current-activity-container">
           <p class="activity-description card-text" id="title-display"></p>
           <div class="timer-container">
@@ -62,10 +62,13 @@
       </section>
     </main>
     <main class="main3 hidden">
-      <button class="create-new-button">Create a new activity!</button>
+      <h2 class="main-text">Completed Activity</h2>
+      <div class="create-new-activity-section shadow">
+        <button class="create-new-button">Create a new activity!</button>
+      </div>
     </main>
     <aside>
-      <h2 class="main-text">Past Activities</h2>
+      <h2 class="main-text activity-header">Past Activities</h2>
       <div class="past-activities-notice main-text">
         <p class="no-activities-notice">You haven't logged any activities yet.<br>Complete the form to the left to get started!</p>
       </div>

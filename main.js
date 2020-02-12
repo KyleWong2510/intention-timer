@@ -8,7 +8,7 @@ var buttonArray = [studyButton, meditateButton, exerciseButton];
 var startTimerButton = document.querySelector('.start-timer-button');
 var logActivityButton = document.querySelector('.log-activity-button');
 var createNewButton = document.querySelector('.create-new-button');
-
+var sideBorder = document.querySelector('.card-border');
 
 // INPUT VARIABLES
 var titleInput = document.querySelector("#title-input");
@@ -62,7 +62,8 @@ function createObject() {
     new Activity(titleInput.value,
       minInput.value,
       secInput.value,
-      whichButton());
+      whichButton()
+    );
 }
 
 function logActivity() {
@@ -124,6 +125,18 @@ function timerBorder() {
     startTimer.style.borderColor = '#FD8078';
   };
 };
+
+// function changeBorderColor() {
+//   if (startTimer.style.borderColor == '#B3FD78') {
+//     return sideBorder.style.borderColor = '#B3FD78';
+//   }
+//   if (startTimer.style.borderColor == '#C278FD') {
+//     return sideBorder.style.borderColor = '#C278FD';
+//   }
+//   if (startTimer.style.borderColor == '#FD8078') {
+//     return sideBorder.style.borderColor = '#FD8078';
+//   }
+// }
 
 // FUNCTIONS FOR THE TIMER
 function restrictMinInput() {
