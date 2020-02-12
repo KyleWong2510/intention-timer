@@ -1,10 +1,10 @@
 body {
-  margin: 0px;
   height: 100vh;
+  margin: 0px;
 }
 
 button, input {
-  outline: none;
+  outline: 0;
 }
 
 .entire-page {
@@ -18,23 +18,22 @@ img {
 }
 
 main {
-  width: 65%;
   background-color: #2b2733;
+  width: 65%;
 }
 
 aside {
-  width: 35%;
   background-color: #2b2733;
   border-left: 2px solid #46424d;
-
+  width: 35%;
 }
 
 header {
+  background-color: #46424d;
+  height: 7vh;
+  padding: 20px;
   text-align: center;
   text-transform: uppercase;
-  background-color: #46424d;
-  padding: 20px;
-  height: 7vh;
 }
 
 h1 {
@@ -49,10 +48,10 @@ h1 {
 
 .new-activity-section {
   background-color: #46424d;
+  border-radius: 10px;
+  height: 67%;
   margin: 30px;
   padding: 40px 75px;
-  height: 67%;
-  border-radius: 10px;
 }
 
 h2 {
@@ -72,25 +71,25 @@ h2 {
 }
 
 .category-button {
-  width: 25%;
-  height: 75px;
+  align-items: center;
   background-color: #46424d;
   border: 2px white solid;
   border-radius: 5px;
+  color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-size: 20px;
-  color: white;
+  height: 75px;
+  justify-content: center;
+  width: 25%;
 }
 
 .field {
-  background: none;
-  border: none;
+  background: 0;
+  border: 0;
   border-bottom: 1px solid #FFF;
-  width: 100%;
   color: #FFF;
+  width: 100%;
 }
 
 .input-time {
@@ -109,9 +108,9 @@ h2 {
 }
 
 .past-activities-notice {
-  text-align: center;
   margin-top: 0;
   padding: 0;
+  text-align: center;
 }
 
 .activity-header {
@@ -119,39 +118,39 @@ h2 {
 }
 
 #start-activity-button {
-  text-transform: uppercase;
   background-color: white;
-  font-size: 15px;
-  padding: 5px 35px;
   border-radius: 5px;
   float: right;
+  font-size: 15px;
+  padding: 5px 35px;
+  text-transform: uppercase;
 }
 
 .create-new-button {
-  text-transform: uppercase;
   background-color: white;
-  font-size: 15px;
-  padding: 5px 35px;
   border-radius: 5px;
+  font-size: 15px;
   height: 35px;
   margin-top: 50px;
+  padding: 5px 35px;
+  text-transform: uppercase;
 }
 
 .study.active {
-  color: #B3FD78;
   border: 2px solid #B3FD78;
+  color: #B3FD78;
   outline: none;
 }
 
 .meditate.active {
-  color: #C278FD;
   border: 2px solid #C278FD;
+  color: #C278FD;
   outline: none;
 }
 
 .exercise.active {
-  color: #FD8078;
   border: 2px solid #FD8078;
+  color: #FD8078;
   outline: none;
 }
 
@@ -160,61 +159,61 @@ h2 {
 }
 
 .current-activity-section {
-  display: flex;
   align-items: center;
-  justify-content: center;
+  display: flex;
   background-color: #46424d;
+  border-radius: 10px;
+  height: 67%;
+  justify-content: center;
   margin: 30px;
   padding: 40px 75px;
-  height: 67%;
-  border-radius: 10px;
 }
 
 .create-new-activity-section {
-  display: flex;
-  justify-content: center;
   background-color: #46424d;
+  border-radius: 10px;
+  display: flex;
+  height: 67%;
+  justify-content: center;
   margin: 30px;
   padding: 40px 75px;
-  height: 67%;
-  border-radius: 10px;
 }
 
 .current-activity-container {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .start-timer-button {
-  font-size: 30px;
-  text-transform: uppercase;
   background-color: #46424d;
-  color: white;
-  padding: 60px;
   border-radius: 100%;
-  text-align: center;
-  width: 280px;
-  height: 280px;
   border-width: 3px;
+  color: white;
+  font-size: 30px;
+  height: 280px;
+  padding: 60px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 280px;
 }
 
 .log-activity-button {
-  text-transform: uppercase;
   background-color: white;
-  font-size: 15px;
-  padding: 5px 35px;
   border-radius: 5px;
   float: right;
+  font-size: 15px;
   margin-top: 15px;
+  padding: 5px 35px;
+  text-transform: uppercase;
 }
 
 .timer {
-  font-size: 75px;
-  margin: 0 0 30px 0;
   color: white;
   font-family: 'Arial', sans-serif;
+  font-size: 75px;
   font-weight: bold;
+  margin: 0 0 30px 0;
 }
 
 .timer-container {
@@ -226,16 +225,13 @@ h2 {
   padding: 16px 0px;
 }
 
-.button-select {
+.button-select,
+.cat-error {
   display: inline-block;
 }
 
 .cat-select {
   margin: 0px 15px;
-}
-
-.cat-error {
-  display: inline-block;
 }
 
 .cat-error,
@@ -247,9 +243,9 @@ h2 {
 
 .activity-card {
   background-color: #46424d;
+  border-radius: 10px;
   margin: 10px 30px;
   padding: 10px;
-  border-radius: 10px;
 }
 
 .chosen {
@@ -267,12 +263,12 @@ h2 {
 }
 
 .chosen-title {
-  font-weight: lighter;
   font-size: 13px;
+  font-weight: lighter;
 }
 
 .chosen-min {
- margin: 0 0 0 5px;
+  margin: 0 0 0 5px;
 }
 
 .chosen-sec {
