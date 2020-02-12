@@ -256,10 +256,6 @@ h2 {
   margin: 5px;
 }
 
-.card-border {
-  border-right: 4px solid white;
-}
-
 .chosen-time {
   display: flex;
   flex-direction: row;
@@ -291,4 +287,16 @@ h2 {
 
 .shadow {
   box-shadow: 7px 8px 6px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-border.study {
+  border-right: 4px solid #B3FD78;
+}
+
+.card-border.meditate {
+  border-right: 4px solid #C278FD;
+}
+
+.card-border.exercise {
+  border-right: 4px solid #FD8078;
 }

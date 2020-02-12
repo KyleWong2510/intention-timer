@@ -1,4 +1,3 @@
-var sideBorder = document.querySelector('.card-border');
 
 class Activity {
   constructor(titleInput, minInput, secInput, category) {
@@ -7,14 +6,19 @@ class Activity {
     this.seconds = secInput;
     this.category = category;
   }
-  createCard() {
+  createCard(buttonArray) {
+      for (var i = 0; i < buttonArray.length; i++) {
+        if (buttonArray[i].classList.contains('active')) {
+          var activeBorder = buttonArray[i].id;
+        }
+      }
     noActivitiesNotice.remove();
     var loggedActivity = document.createElement('div');
     loggedActivity.classList.add('activity-card');
     loggedActivity.classList.add('shadow');
     loggedActivity.classList.add('card-text');
     loggedActivity.innerHTML =
-    ` <div class="card-border">
+    ` <div class="card-border ${activeBorder}">
         <p class="chosen-category chosen">${this.category}</p>
         <div class="chosen-time">
           <p class="chosen-min">${this.minutes} MIN
@@ -26,16 +30,13 @@ class Activity {
       <p class="chosen-title chosen">${this.title}</p>`;
     return loggedActivity;
   }
-  // colorBorder() {
-  //   console.log('hi');
-  //     if (event.target.classList.contains('study')) {
-  //       sideBorder.style.borderColor = '#B3FD78';
+  // changeBorderColor(buttonArray) {
+  //   for (var i = 0; i < buttonArray.length; i++) {
+  //     if (buttonArray[i].classList.contains('active')) {
+  //       var activeBorder = buttonArray[i].id;
   //     }
-  //     if (event.target.classList.contains('meditate')) {
-  //       sideBorder.style.borderColor = '#C278FD';
-  //     }
-  //     if (event.target.classList.contains('exercise')) {
-  //       sideBorder.style.borderColor = '#FD8078';
-  //     };
-  //   };
+  //   }
+  // }
+
+
 };

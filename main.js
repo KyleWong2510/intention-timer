@@ -8,7 +8,7 @@ var buttonArray = [studyButton, meditateButton, exerciseButton];
 var startTimerButton = document.querySelector('.start-timer-button');
 var logActivityButton = document.querySelector('.log-activity-button');
 var createNewButton = document.querySelector('.create-new-button');
-var sideBorder = document.querySelector('.card-border');
+// var sideBorder = document.querySelector('.card-border');
 
 // INPUT VARIABLES
 var titleInput = document.querySelector("#title-input");
@@ -69,7 +69,7 @@ function createObject() {
 function logActivity() {
   main2.classList.add('hidden');
   main3.classList.remove('hidden');
-  var newCard = currentActivity.createCard();
+  var newCard = currentActivity.createCard(buttonArray);
   document.querySelector('.card-wrapper').appendChild(newCard);
   currentActivity = undefined;
 }
@@ -87,9 +87,9 @@ function whichButton() {
 function returnToMain1() {
   var colon = document.querySelector('.colon');
   main3.classList.add('hidden');
+  removeColors();
   main1.classList.remove('hidden');
   colon.classList.remove('hidden');
-  console.log('test');
   startTimerButton.disabled = false;
   startTimerButton.innerText = 'START';
   logActivityButton.classList.add('hidden');
@@ -117,26 +117,47 @@ function removeColors() {
 function timerBorder() {
   if (event.target.classList.contains('study')) {
     startTimer.style.borderColor = '#B3FD78';
+    return 'study'
   }
   if (event.target.classList.contains('meditate')) {
     startTimer.style.borderColor = '#C278FD';
+    return 'meditate'
   }
   if (event.target.classList.contains('exercise')) {
     startTimer.style.borderColor = '#FD8078';
+    return 'exercise'
   };
 };
 
 // function changeBorderColor() {
-//   if (startTimer.style.borderColor == '#B3FD78') {
-//     return sideBorder.style.borderColor = '#B3FD78';
-//   }
-//   if (startTimer.style.borderColor == '#C278FD') {
-//     return sideBorder.style.borderColor = '#C278FD';
-//   }
-//   if (startTimer.style.borderColor == '#FD8078') {
-//     return sideBorder.style.borderColor = '#FD8078';
+//   for (var i = 0; i < buttonArray.length; i++) {
+//     if (buttonArray[i].classList.contains('active')) {
+//       var activeBorder = buttonArray[i].id;
+//     }
 //   }
 // }
+
+// function changeBorderColor() {
+//   var sideBorder = document.getElementsByClassName('.card-border');
+//   if (studyButton.classList.contains('active')) {
+//     sideBorder.style.borderColor = '#B3FD78';
+//   }
+//   if (meditateButton.classList.contains('active')) {
+//     sideBorder.style.borderColor = '#C278FD';
+//   }
+//   if (exerciseButton.classList.contains('active')) {
+//     sideBorder.style.borderColor = '#FD8078';
+//   }
+// }
+
+// function changeBorderColor() {
+//   var sideBorder = document.getElementsByClassName('.card-border');
+//   if (timerBorder() == 'study') {
+//     sideBorder.style.borderColor = '#B3FD78';
+//   }
+  // if the return of timerBorder function is 'study'
+//} make the side border green
+
 
 // FUNCTIONS FOR THE TIMER
 function restrictMinInput() {
@@ -206,7 +227,7 @@ function clearInputs() {
   minInput.value = '';
   secInput.value = '';
   titleInput.value = '';
-  removeColors();
+
 
 }
 
