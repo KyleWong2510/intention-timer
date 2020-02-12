@@ -26,6 +26,7 @@ aside {
   width: 35%;
   background-color: #2b2733;
   border-left: 2px solid #46424d;
+
 }
 
 header {
@@ -51,6 +52,7 @@ h1 {
   margin: 30px;
   padding: 40px 75px;
   height: 67%;
+  border-radius: 10px;
 }
 
 h2 {
@@ -108,7 +110,12 @@ h2 {
 
 .past-activities-notice {
   text-align: center;
-  margin-top: 55px;
+  margin-top: 0;
+  padding: 0;
+}
+
+.activity-header {
+  margin-bottom: 23px;
 }
 
 #start-activity-button {
@@ -118,6 +125,16 @@ h2 {
   padding: 5px 35px;
   border-radius: 5px;
   float: right;
+}
+
+.create-new-button {
+  text-transform: uppercase;
+  background-color: white;
+  font-size: 15px;
+  padding: 5px 35px;
+  border-radius: 5px;
+  height: 35px;
+  margin-top: 50px;
 }
 
 .study.active {
@@ -150,6 +167,17 @@ h2 {
   margin: 30px;
   padding: 40px 75px;
   height: 67%;
+  border-radius: 10px;
+}
+
+.create-new-activity-section {
+  display: flex;
+  justify-content: center;
+  background-color: #46424d;
+  margin: 30px;
+  padding: 40px 75px;
+  height: 67%;
+  border-radius: 10px;
 }
 
 .current-activity-container {
@@ -221,6 +249,7 @@ h2 {
   background-color: #46424d;
   margin: 10px 30px;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .chosen {
@@ -234,6 +263,7 @@ h2 {
 .chosen-time {
   display: flex;
   flex-direction: row;
+  margin: 0;
 }
 
 .chosen-category {
@@ -242,4 +272,23 @@ h2 {
 
 .chosen-title {
   font-weight: lighter;
+  font-size: 13px;
+}
+
+.chosen-min {
+ margin: 0 0 0 5px;
+}
+
+.chosen-sec {
+  margin: 0 0 0 15px;
+}
+
+.card-wrapper {
+  height: 580px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+.shadow {
+  box-shadow: 7px 8px 6px 4px rgba(0, 0, 0, 0.1);
 }
