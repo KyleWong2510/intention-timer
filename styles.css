@@ -88,7 +88,7 @@ h2 {
   border: 4px solid;
   cursor: pointer;
   outline-offset: 15px;
-  text-shadow: 1px 1px 2px #427388; 
+  text-shadow: 1px 1px 2px #427388;
 }
 
 #study:hover {
@@ -226,7 +226,7 @@ h2 {
   cursor: pointer;
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
-  text-shadow: 1px 1px 2px #427388; 
+  text-shadow: 1px 1px 2px #427388;
 }
 
 .log-activity-button {
@@ -323,14 +323,14 @@ h2 {
   box-shadow: 7px 8px 6px 4px rgba(0, 0, 0, 0.1);
 }
 
-.card-border.study {
+.card-border.Study {
   border-right: 4px solid #B3FD78;
 }
 
-.card-border.meditate {
+.card-border.Meditate {
   border-right: 4px solid #C278FD;
 }
 
-.card-border.exercise {
+.card-border.Exercise {
   border-right: 4px solid #FD8078;
 }

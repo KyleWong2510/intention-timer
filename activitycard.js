@@ -5,19 +5,14 @@ class Activity {
     this.seconds = secInput;
     this.category = category;
   }
-  createCard(buttonArray) {
-    for (var i = 0; i < buttonArray.length; i++) {
-      if (buttonArray[i].classList.contains('active')) {
-        var activeBorder = buttonArray[i].id;
-      };
-    };
+  createCard() {
     noActivitiesNotice.remove();
     var loggedActivity = document.createElement('div');
     loggedActivity.classList.add('activity-card');
     loggedActivity.classList.add('shadow');
     loggedActivity.classList.add('card-text');
     loggedActivity.innerHTML =
-      ` <div class="card-border ${activeBorder}">
+      ` <div class="card-border ${this.category}">
         <p class="chosen-category chosen">${this.category}</p>
         <div class="chosen-time">
           <p class="chosen-min">${this.minutes} MIN

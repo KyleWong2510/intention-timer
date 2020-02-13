@@ -148,7 +148,7 @@ function whichButton() {
 function logActivity() {
   main2.classList.add('hidden');
   main3.classList.remove('hidden');
-  var newCard = currentActivity.createCard(buttonArray);
+  var newCard = currentActivity.createCard();
   document.querySelector('.card-wrapper').appendChild(newCard);
   currentActivity = undefined;
 };
@@ -174,15 +174,13 @@ function setTimer() {
   var remainingMinutes = Math.floor(totalSeconds / 60);
   var colon = document.querySelector('.colon')
   var timer = setInterval(function() {
-    if (remainingSeconds < 10) {
-      remainingSeconds = `0${remainingSeconds}`;
-      minutesSlot.innerText = remainingMinutes;
-      secondsSlot.innerText = remainingSeconds;
-      totalSeconds--;
-      startTimerButton.disabled = true;
-      remainingMinutes = Math.floor(totalSeconds / 60);
-      remainingSeconds = totalSeconds % 60;
-    };
+    remainingSeconds = ("0" + remainingSeconds).slice(-2);
+    minutesSlot.innerText = remainingMinutes;
+    secondsSlot.innerText = remainingSeconds;
+    totalSeconds--;
+    startTimerButton.disabled = true;
+    remainingMinutes = Math.floor(totalSeconds / 60);
+    remainingSeconds = totalSeconds % 60;
     if (totalSeconds < 0) {
       clearInterval(timer);
       minutesSlot.innerText = '';
