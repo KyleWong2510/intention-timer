@@ -20,6 +20,7 @@ var categoryField = document.querySelector('.category-field');
 var titleError = document.querySelector('.title-error');
 var minError = document.querySelector('.min-error');
 var secError = document.querySelector('.sec-error');
+var catError = document.querySelector('.cat-error');
 
 // PAGE VARIABLES
 var main1 = document.querySelector('.main1');
