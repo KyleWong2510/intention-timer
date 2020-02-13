@@ -5,8 +5,9 @@
   <title>Intention Timer</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
   <header class="card-text">
     <h1>Intention Timer<h1>
@@ -17,7 +18,7 @@
       <section class="new-activity-section shadow">
       <div class="category-field">
         <h3 class="card-text button-select">Select a category:</h3>
-        <p class="error-message cat-error card-text"><img src="assets/warning.svg">A category selection is required</p>
+        <p class="error-message cat-error card-text"><img class="error-pic" src="assets/warning.svg">A category selection is required</p>
       </div>
         <div class="category-section">
           <button id="study" class="category-button study"><img src="assets/study.svg">Study</button>
@@ -28,18 +29,18 @@
           <div class="input-field-1">
             <p class="card-text">What would you like to accomplish during this time?</p>
             <input class="field"  id="title-input" type="text">
-              <p class="error-message title-error card-text"><img src="assets/warning.svg">A description is required</p>
+              <p class="error-message title-error card-text"><img class="error-pic" src="assets/warning.svg">A description is required</p>
           </div>
           <div class="input-time">
             <div class="input-field-2">
               <p class="card-text">Minutes</p>
               <input class="field" id="min-input" type="number" min="0" max="59">
-                <p class="error-message min-error card-text"><img src="assets/warning.svg">A minute value is required</p>
+                <p class="error-message min-error card-text"><img class="error-pic" src="assets/warning.svg">A minute value is required</p>
             </div>
             <div class="input-field-3">
               <p class="card-text">Seconds</p>
               <input class="field" id="sec-input" type="number" min="0" max="59">
-                <p class="error-message sec-error card-text"><img src="assets/warning.svg">A second value is required</p>
+                <p class="error-message sec-error card-text"><img class="error-pic" src="assets/warning.svg">A second value is required</p>
             </div>
           </div>
           <button id="start-activity-button">Start Activity</button>
