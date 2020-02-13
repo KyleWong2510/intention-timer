@@ -77,11 +77,7 @@ function validate() {
     displayTimerPage();
     titleSlot.innerText = currentActivity.title;
     minutesSlot.innerText = currentActivity.minutes;
-    if (currentActivity.seconds < 10) {
-      secondsSlot.innerText = `0${currentActivity.seconds}`
-    } else {
-      secondsSlot.innerText = currentActivity.seconds;
-    };
+    secondsSlot.innerText = ('0' + currentActivity.seconds).slice(-2);
     clearInputs();
   };
 };
