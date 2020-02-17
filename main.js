@@ -41,6 +41,9 @@ var noActivitiesNotice = document.querySelector('.no-activities-notice');
 // EVENT LISTENERS
 minInput.addEventListener('input', restrictMinInput);
 secInput.addEventListener('input', restrictSecInput);
+minInput.addEventListener('keyup', removeErrors);
+secInput.addEventListener('keyup', removeErrors);
+titleInput.addEventListener('keyup', removeErrors);
 buttonContainer.addEventListener('click', changeButtons);
 buttonContainer.addEventListener('click', timerBorder)
 startButton.addEventListener('click', validate);
@@ -110,6 +113,18 @@ function validateInputs() {
   return isValid;
 };
 
+function removeErrors() {
+  if (titleInput.value) {
+    titleError.style.visibility = 'hidden';
+  };
+  if (minInput.value) {
+    minError.style.visibility = 'hidden';
+  };
+  if (secInput.value) {
+    secError.style.visibility = 'hidden';
+  };
+};
+
 function displayTimerPage() {
   main1.classList.add('hidden');
   main2.classList.remove('hidden');
@@ -162,13 +177,14 @@ function restrictSecInput() {
   };
 };
 
+//REFACTOR
+
 function setTimer() {
   var minutes = Number(currentActivity.minutes);
   var seconds = Number(currentActivity.seconds);
   var totalSeconds = (minutes * 60) + seconds;
   var remainingSeconds = totalSeconds % 60;
   var remainingMinutes = Math.floor(totalSeconds / 60);
-  var colon = document.querySelector('.colon')
   var timer = setInterval(function() {
     remainingSeconds = ("0" + remainingSeconds).slice(-2);
     minutesSlot.innerText = remainingMinutes;
@@ -179,14 +195,20 @@ function setTimer() {
     remainingSeconds = totalSeconds % 60;
     if (totalSeconds < 0) {
       clearInterval(timer);
-      minutesSlot.innerText = '';
-      secondsSlot.innerText = 'Congratulations!';
-      colon.classList.add('hidden');
-      startTimerButton.innerText = 'COMPLETE!';
-      logActivityButton.classList.remove('hidden');
+      clearDisplay();
     };
   }, 1000);
 };
+
+function clearDisplay(){
+  var colon = document.querySelector('.colon')
+  minutesSlot.innerText = '';
+  secondsSlot.innerText = 'Congratulations!';
+  colon.classList.add('hidden');
+  startTimerButton.innerText = 'COMPLETE!';
+  logActivityButton.classList.remove('hidden');
+}
+// END OF REFACTOR
 
 function timerBorder() {
   if (event.target.classList.contains('study')) {
